@@ -1,0 +1,22 @@
+Tenure: 10, number of iterations: 5000
+
+Instance: .\instances\qbf020
+best score found: 125
+
+Instance: .\instances\qbf040
+best score found: 366
+
+Instance: .\instances\qbf060
+best score found: 495
+
+Instance: .\instances\qbf080
+best score found: 851
+
+Instance: .\instances\qbf100
+best score found: 1133
+
+Instance: .\instances\qbf200
+best score found: 3961
+
+Instance: .\instances\qbf400
+best score found: 10033
