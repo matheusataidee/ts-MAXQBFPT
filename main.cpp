@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+#include "solution.hpp"
+
 using namespace std;
 
 int n;
@@ -59,5 +61,34 @@ int main(int argc, char** argv) {
     }
     fin.close();
     mountTriples();
+    Solution solution(n, 10);
+    Solution best_solution(n, 10);
+    for (int i = 0; i < 5000; i++) {
+        solution.localSearch();
+        if (solution.getScore() > best_solution.getScore()) {
+            best_solution = solution;
+        }
+    }
+    bool invalid = false;
+    for (int i = 0; i < n; i++) {
+        if (best_solution.hasElem(triples[i][0]) && best_solution.hasElem(triples[i][1]) && best_solution.hasElem(triples[i][2])) {
+            cout << "INVALID" << endl;
+            invalid = true;
+        }
+    }
+    if (invalid == false) {
+        cout << "Valid solution confirmed" << endl;
+    }
+
+    double partial = 0.0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (best_solution.hasElem(i) && best_solution.hasElem(j)) {
+                partial += weights[i][j];
+            }
+        }
+    }
+    cout << "partial = " << partial << endl;
+    cout << "best_solution score = " <<  best_solution.getScore() << endl;
     return 0;
 }
